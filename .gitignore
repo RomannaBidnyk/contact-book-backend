@@ -1,0 +1,34 @@
+# Maven / build
+target/
+*.class
+*.jar
+*.war
+*.ear
+
+# Spring Boot specific
+spring-boot-devtools.log
+
+# Logs
+*.log
+
+# Temporary files
+*.tmp
+*.swp
+*.DS_Store
+
+# IDE / editor
+.vscode/
+.idea/
+*.iml
+
+# OS files
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+
+# Maven Wrapper
+.mvn/wrapper/maven-wrapper.jar
+
+# Environment / secrets (if you use application.properties for passwords)
+application.properties
+application.yml
