@@ -1,7 +1,7 @@
 package com.contact.contact.service;
 
-import java.util.List;
-
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
 import com.contact.contact.entity.Contact;
@@ -15,8 +15,8 @@ public class ContactService {
 
     private final ContactRepository repository;
 
-    public List<Contact> getAllContacts() {
-        return repository.findAll();
+    public Page<Contact> getAllContacts(Pageable pageable) {
+        return repository.findAll(pageable);
     }
 
     public Contact saveContact(Contact contact) {

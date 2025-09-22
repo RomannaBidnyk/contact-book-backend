@@ -1,7 +1,7 @@
 package com.contact.contact.controller;
 
-import java.util.List;
-
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -23,8 +23,8 @@ public class ContactController {
     private final ContactService service;
 
     @GetMapping
-    public List<Contact> getAllContacts() {
-        return service.getAllContacts();
+    public Page<Contact> getAllContacts(Pageable pageable) {
+        return service.getAllContacts(pageable);
     }
 
     @PostMapping
