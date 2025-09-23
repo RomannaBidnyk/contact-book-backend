@@ -16,7 +16,7 @@ import lombok.RequiredArgsConstructor;
 
 @RestController
 @RequestMapping("/api/contacts")
-@CrossOrigin(origins = "${frontend.url}")
+@CrossOrigin
 @RequiredArgsConstructor
 public class ContactController {
 
