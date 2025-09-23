@@ -22,4 +22,11 @@ public class ContactService {
     public Contact saveContact(Contact contact) {
         return repository.save(contact);
     }
+
+    public void deleteContact(Long id) {
+        if (!repository.existsById(id)) {
+            throw new IllegalArgumentException("Contact not found with id: " + id);
+        }
+        repository.deleteById(id);
+    }
 }
