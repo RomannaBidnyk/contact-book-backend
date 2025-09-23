@@ -10,6 +10,8 @@ import jakarta.persistence.Id;
 import jakarta.persistence.PreUpdate;
 import jakarta.persistence.Table;
 import jakarta.persistence.UniqueConstraint;
+import jakarta.validation.constraints.Email;
+import jakarta.validation.constraints.NotBlank;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
@@ -26,12 +28,16 @@ public class Contact {
     private Long id;
 
     @Column(nullable = false, length = 100)
+    @NotBlank(message = "Name is required")
     private String name;
 
     @Column(nullable = false, length = 150)
+    @NotBlank(message = "Email is required")
+    @Email(message = "Email should be valid")
     private String email;
 
     @Column(nullable = false, length = 30)
+    @NotBlank(message = "Phone is required")
     private String phone;
 
     @Column(nullable = false)
@@ -39,6 +45,9 @@ public class Contact {
 
     @Column(nullable = false)
     private Instant updatedAt = Instant.now();
+
+    @Column(length = 255)
+    private String photoUrl;
 
     @PreUpdate
     public void preUpdate() {
